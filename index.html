@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.66.0" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+  <!-- 引入jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- 引入Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+  <style>
+    body {
+      font-size: 20px; /* 设置默认字体大小 */
+
+    }
+    h1{ font-size:30px; 
+      color:black"
+
+    }
+    thead{
+      border-top: 1px solid #ccc; 
+    }
+    .table td{
+      border: none
+    }
+    .no-border {
+    border: none;
+  }
+
+  th{
+    font-weight: lighter;
+  }
+
+    .table-container {
+      overflow-x: auto;
+      /* width:120%; */
+      width: 100%;
+      /* margin: 20px; */
+    }
+
+    .table-container2 {
+    table-layout: fixed;
+    word-break: break-word;
+    width: 90%; /* 适当调整宽度 */
+    margin: 0 auto; /* 居中对齐 */
+    }
+
+    .divider {
+    border-top: 2px solid #ccc; /* 灰色边框 */
+    margin: 20px 0; /* 适当调整上下边距 */
+  }
+
+    .audio-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none
+    }
+
+    td{
+      text-align: justify; 
+      color:black;
+      font-family: georgian;
+    }
+
+    font{ text-align: justify; 
+      color:black;
+      font-family: georgian;
+
+    }
+
+      video {
+      width: 640px; /* 设置视频宽度 */
+      height: 360px; /* 设置视频高度 */
+    }
+    @media(min-width:1200px){
+      .table-container {
+      overflow-x: auto;
+      width:100%;
+      margin: 0 auto;
+
+    }
+    }
+    @media (max-width: 600px) {
+      /* 在手机屏幕上应用以下样式 */
+      body {
+        font-size: 14px; /* 缩小字体大小 */
+      }
+      h1 {
+        font-size: 22px; /* 缩小标题字体大小 */
+      }
+      h2 {
+        font-size: 18px; /* 缩小标题字体大小 */
+      }
+      nav ul li {
+        display: block; /* 列表项显示为块级元素，方便手机点击 */
+      }
+      .video-container {
+        padding-bottom: 75%; /* 4:3宽高比，调整此值适配其他比例的视频 */
+      }
+      video {
+      width: 400px; /* 设置视频宽度 */
+      /* height: 360px; 设置视频高度 */
+      }
+    }
+  </style>
+  <title >FlowSep: Language-Queried Sound Separation with Rectified Flow Matching</title>
+</head>
+
+<body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
+  <!-- <font size="5"> -->
+
+    <div class="container">
+
+      <header role="banner">
+
+      </header>
+      <main role="main">
+        <article itemscope itemtype="https://schema.org/BlogPosting">
+          <br></br>
+          <h1 itemprop="headline" align="center">
+            <font style="font-size:40px; color:black;">FlowSep: Language-Queried Sound Separation with Rectified Flow Matching
+            </font>
+          </h1>
+          <br></br>
+          <p style="line-height:1" align="center"><b>
+              <font style="color: #0056b3;"><a href="https://scholar.google.com/citations?user=vFk3_VYAAAAJ&hl=en">Yi Yuan</a>,
+                <a href="https://liuxubo717.github.io/">Xubo Liu</a>, 
+                <a href="https://haoheliu.github.io/">Haohe Liu</a>,  
+                <a href="https://www.surrey.ac.uk/people/mark-plumbley">Mark D. Plumbley</a>,
+                <a href="http://personal.ee.surrey.ac.uk/Personal/W.Wang/">Wenwu Wang</a>
+              </font>
+            </b></p>
+          <p style="line-height:0.6" align="center">
+            <font color="061E61">CVSSP, University of Surrey, Guildford, UK</font>
+          </p>
+          <!-- <p style="line-height:0.6" align="center">
+            <font color="061E61"> <sup>3</sup>The Chinese University of Hong Kong</font>
+          </p> -->
+          <!-- <p style="line-height:1" align="center">
+            <font color="061E61"><sup>&#x1F4EE;</sup>Corresponding author</font>
+          </p> -->
+
+          <br>
+          <table align=center width=500px>
+          <center>
+                  <span class="link-block">
+                    <a href="AudioSep_arXiv.pdf"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color: black;">
+                          <i class="fa fa-file-text" aria-hidden="true"></i>
+                      </span>
+                      <span style="font-size:22px; color: black; font-family: georgian;"><b>Paper</b></span>
+                    </a>
+            
+    
+                  </span>
+            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a href="https://github.com/Audio-AGI/AudioSep"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color: black;">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span style="font-size:22px; color: black; font-family: georgian;"><b>Code(Coming soon)</b></span>
+                      </a>
+                  </span>
+            </center>			  
+             </tr>
+          </table>
+
+          <br>
+          <br>
+
+
+          <section itemprop="entry-text">
+            <!-- <br>
+            <div class="container">
+              <center>
+                <p><a href="https://arxiv.org/abs/2301.12503">[Paper on ArXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/haoheliu/audioldm2">[Code on GitHub]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/haoheliu/audioldm2">[HuggingFace Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://discord.gg/b64SEmdf">[Discord Community]</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                
+              </center>
+            </div> -->
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+  
+                  <th>
+                    <h2 id="abstract">
+                      <center>
+                        <h1>Abstract</h1>
+                      </center>
+                    </h2>
+                    <p style="text-align: justify; color:black;font-family: georgian;">
+                      <font> 
+                        Language-queried audio source separation (LASS) aims to separate sound sources based on textual descriptions of the desired source. 
+                        Current state-of-the-art (SoTA) models primarily use discriminative approaches, such as time-frequency masking, to separate the target sounds while reducing interference from other sources. 
+                        However, these models may encounter challenges in separating overlapping soundtracks, degrading the overall performance in real-world scenarios. 
+                        Recently, the subjective quality of separated sound was enhanced successfully via generative approaches, such as diffusion-based models. 
+                        Rectified flow matching(RFM), a variant of the diffusion-based generative model that establishes linear connections between the distribution of data and noise, offers superior theoretical properties and simplicity, 
+                        but has not yet been explored in sound separation. In this work, we introduce FlowSep, a novel generative model based on RFM for LASS tasks. 
+                        Specifically, FlowSep learns linear flow trajectories from Gaussian noise to the target source features within a pre-trained latent space. During inference, 
+                        the mel-spectrogram can be reconstructed from the generated latent vector with the pre-trained variational autoencoder (VAE) decoder. 
+                        Trained on 1,680 hours of audio data, FlowSep outperforms SoTA models across multiple benchmarks, as evaluated on subjective and objective metrics. 
+                        Additionally, our results show that RFM surpasses diffusion-based approaches in both separation quality and inference efficiency, highlighting its strong potential for audio source separation tasks.
+                      </font>
+                    </p>
+                    </th>
+
+            </table>
+            <!-- <hr class="divider"> -->
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <th style="border: None;">
+                <h2 id="graph">
+                  <center>
+                  <h1>FlowSep</h1>
+                </center>
+              </h2>
+              <p style="text-align: justify; color:black;font-family: georgian;">
+                <font> 
+                  <!-- <strong> -->
+                    FlowSep is an RFM-based generative model for text-based audio source separation. FlowSep comprises four main components: a T5 encoder for text embedding, a rectified flow matching
+                    (RFM) generator for creating audio features within the latent space, a VAE decoder for reconstructing the mel-spectrogram, and a GAN vocoder to produce the final waveform.
+                <!-- </strong> -->
+                </font>
+              </p>
+              <figure>
+                <p align="center"><img src="FlowSep.png" width="90%" class="center" /></p>
+                <figcaption>
+                  
+                  <p style="text-align: justify;">
+                    <center>
+                    <font color="061E61"><b>Figure 1:</b> Framework of AudioSep.
+                    </center>
+                  </p>
+                </figcaption>
+              </figure>
+            </th>
+          </table>
+            
+            
+  
+            
+
+            <br></br>
+            <h2 id="section_1">
+              <h3 style="color: black;">Demos on DCASE2024-Real</h3>
+            </h2>
+            <!-- <p>
+              <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
+            </p> -->
+            <!-- demos for dacse2024-real -->
+            <div class = "table-container">
+              <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                <thead>
+                  <tr>
+                    <th scope="col" width="160px">
+                      <center>
+                      <font color="061E61">Text Query</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">Mixture</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">AudioSep</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">FlowSep</font>
+                    </center>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        <center>
+                          "the crowd is cheering and giving applause"
+                        </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-16.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-16.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-16.png" width="250"/>
+                         </center>
+                      </td>
+                   </tr>
+                    <td></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/ground_truth/test-real-case-16.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center>
+                    </td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/AudioSep/test-real-case-16.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/FlowSep/test-real-case-16.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        <center>
+                          "someone is beating the drum continuously"
+                        </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-68.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-68.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-68.png" width="250"/>
+                         </center>
+                      </td>
+                   </tr>
+                    <td></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/ground_truth/test-real-case-68.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center>
+                    </td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/AudioSep/test-real-case-68.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demos/FlowSep/test-real-case-68.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        &#x1F449; Click for more examples.
+                      </button>
+                    </h5>
+                  </div>
+                  <!-- more examples for dacse2024-real -->
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                        <thead>
+                          <tr>
+                            <th scope="col" width="160px">
+                              <center>
+                              <font color="061E61">Text Query</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">Mixture</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">AudioSep</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">FlowSep</font>
+                            </center>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "the woman is speaking in a distance"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-12.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-12.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-12.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-12.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-12.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-12.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "the woman is talking with others"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-13.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-13.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-13.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-13.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-13.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-13.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "a bunch of people are cheering in unison"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-45.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-45.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-45.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-45.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-45.wav"
+
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-45.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "the water is flowing and gurgling in the stream"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-51.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-51.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-51.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-51.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-51.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-51.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "a female is speaking and the cutlery is clanging"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-75.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-75.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-75.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-75.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-75.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-75.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "a cat is meowing amidst the faint sound of bird calls"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-6.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-6.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-6.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-6.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-6.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-6.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "in the forest, the birds are chirping incessantly"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-10.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-10.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-10.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-10.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-10.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-10.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "a car is passing by a noisy road"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-11.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-11.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-11.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/ground_truth/test-real-case-11.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/AudioSep/test-real-case-11.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demos/FlowSep/test-real-case-11.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+
+              <br></br>
+              <h2 id="section_2">
+                <h3 style="color: black;">Demos on AudioCaps</h3>
+              </h2>
+              <!-- <p>
+                <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
+              </p> -->
+              <!-- demos for AudioCaps -->
+              <div class = "table-container">
+                <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Text Query</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Mixture</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">AudioSep</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">FlowSep</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Ground Truth</font>
+                      </center>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "a cat meowing and young female speaking"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/mix/Y_GI7meqlYZk.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/AudioSep/Y_GI7meqlYZk.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/FlowSep/Y_GI7meqlYZk.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                      <center>
+                         <img alt="fname" height="125" src="demo_plogs/ground_truth/Y_GI7meqlYZk.png" width="250"/>
+                      </center>
+                   </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/mix/Y_GI7meqlYZk.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/AudioSep/Y_GI7meqlYZk.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/FlowSep/Y_GI7meqlYZk.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/ground_truth/Y_GI7meqlYZk.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "A group of people laughing followed by farting"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/mix/Y_w2pA1VeB40.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/AudioSep/Y_w2pA1VeB40.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/FlowSep/Y_w2pA1VeB40.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                      <center>
+                         <img alt="fname" height="125" src="demo_plogs/ground_truth/Y_w2pA1VeB40.png" width="250"/>
+                      </center>
+                   </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/mix/Y_w2pA1VeB40.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/AudioSep/Y_w2pA1VeB40.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/FlowSep/Y_w2pA1VeB40.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/ground_truth/Y_w2pA1VeB40.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          &#x1F449; Click for more examples.
+                        </button>
+                      </h5>
+                    </div>
+                    <!-- more examples for audiocaps -->
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                          <thead>
+                            <tr>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Text Query</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Mixture</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">AudioSep</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">FlowSep</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Ground Truth</font>
+                              </center>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a kid crying as a man and a woman talk followed by a car door opening then closing"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y_YS5uKWoB6g.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y_YS5uKWoB6g.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y_YS5uKWoB6g.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y_YS5uKWoB6g.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y_YS5uKWoB6g.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y_YS5uKWoB6g.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y_YS5uKWoB6g.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y_YS5uKWoB6g.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a woman is speaking from a microphone"
+                            </td>
+                            <td>
+
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-CcGuq0yoKo.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-CcGuq0yoKo.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-CcGuq0yoKo.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-CcGuq0yoKo.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-CcGuq0yoKo.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-CcGuq0yoKo.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-CcGuq0yoKo.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-CcGuq0yoKo.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "race cars are racing followed by people talking"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-mb4Fw4Z0xg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-mb4Fw4Z0xg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-mb4Fw4Z0xg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-mb4Fw4Z0xg.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-mb4Fw4Z0xg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-mb4Fw4Z0xg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-mb4Fw4Z0xg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-mb4Fw4Z0xg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a man speaks with low speech in the background"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-mhFGevxLUg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-mhFGevxLUg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-mhFGevxLUg.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-mhFGevxLUg.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-mhFGevxLUg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-mhFGevxLUg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-mhFGevxLUg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-mhFGevxLUg.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "an engine revving and then tires squealing"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-oy0BkpMGAk.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-oy0BkpMGAk.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-oy0BkpMGAk.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-oy0BkpMGAk.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-oy0BkpMGAk.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-oy0BkpMGAk.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-oy0BkpMGAk.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-oy0BkpMGAk.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a chainsaw cutting as wood is cracking"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-R69Fa-mCaY.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-R69Fa-mCaY.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-R69Fa-mCaY.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-R69Fa-mCaY.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-R69Fa-mCaY.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-R69Fa-mCaY.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-R69Fa-mCaY.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-R69Fa-mCaY.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a man speaking as vehicles drive by and leaves rustling"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y-SkjbQVgJ0M.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y-SkjbQVgJ0M.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y-SkjbQVgJ0M.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y-SkjbQVgJ0M.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y-SkjbQVgJ0M.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y-SkjbQVgJ0M.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y-SkjbQVgJ0M.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y-SkjbQVgJ0M.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "the sound of horn from a car approaching from a distance"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/Y_w2pA1VeB40.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/Y_w2pA1VeB40.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/Y_w2pA1VeB40.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/Y_w2pA1VeB40.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/Y_w2pA1VeB40.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/Y_w2pA1VeB40.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/Y_w2pA1VeB40.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/Y_w2pA1VeB40.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <br></br>
+              <h2 id="section_3">
+                <h3 style="color: black;">Demos on DCASE2024-Synth</h3>
+              </h2>
+              <!-- <p>
+                <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
+              </p> -->
+              <div class = "table-container">
+                <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Text Query</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Mixture</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">AudioSep</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">FlowSep</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Ground Truth</font>
+                      </center>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "with the sound of the car horn, the car is speeding by"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/mix/681591_1435070-hq-m-710644_15314137-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/AudioSep/681591_1435070-hq-m-710644_15314137-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/FlowSep/681591_1435070-hq-m-710644_15314137-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                      <center>
+                         <img alt="fname" height="125" src="demo_plogs/ground_truth/681591_1435070-hq-m-710644_15314137-hq.png" width="250"/>
+                      </center>
+                   </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/mix/681591_1435070-hq-m-710644_15314137-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/AudioSep/681591_1435070-hq-m-710644_15314137-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/FlowSep/681591_1435070-hq-m-710644_15314137-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/ground_truth/681591_1435070-hq-m-710644_15314137-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "a person is pressing the shutter button of the camera to check something"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/mix/682019_11791687-hq-m-684710_14166238-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/AudioSep/682019_11791687-hq-m-684710_14166238-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_plogs/FlowSep/682019_11791687-hq-m-684710_14166238-hq.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                      <center>
+                         <img alt="fname" height="125" src="demo_plogs/ground_truth/682019_11791687-hq-m-684710_14166238-hq.png" width="250"/>
+                      </center>
+                   </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/mix/682019_11791687-hq-m-684710_14166238-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/AudioSep/682019_11791687-hq-m-684710_14166238-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/FlowSep/682019_11791687-hq-m-684710_14166238-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demos/ground_truth/682019_11791687-hq-m-684710_14166238-hq.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          &#x1F449; Click for more examples.
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                          <thead>
+                            <tr>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Text Query</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Mixture</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">AudioSep</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">FlowSep</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Ground Truth</font>
+                              </center>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "the sound of a gun being loaded echoes, accompanied by the tapping of a switch or button"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/681669_11791687-hq-m-682370_11791687-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/681669_11791687-hq-m-682370_11791687-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/681669_11791687-hq-m-682370_11791687-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/681669_11791687-hq-m-682370_11791687-hq.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/681669_11791687-hq-m-682370_11791687-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/681669_11791687-hq-m-682370_11791687-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/681669_11791687-hq-m-682370_11791687-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/681669_11791687-hq-m-682370_11791687-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "a gunman is loading the gun, creating a loud screeching and clanging sound, and then this person puts the gun on the table with a thumping sound"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/681693_11791687-hq-m-685765_14328561-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/681693_11791687-hq-m-685765_14328561-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/681693_11791687-hq-m-685765_14328561-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/681693_11791687-hq-m-685765_14328561-hq.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/681693_11791687-hq-m-685765_14328561-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/681693_11791687-hq-m-685765_14328561-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/681693_11791687-hq-m-685765_14328561-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/681693_11791687-hq-m-685765_14328561-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "accompanied by clear chirping of birds, there are continuous noises and footsteps all around"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/mix/681701_11215267-hq-m-686650_12029773-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/AudioSep/681701_11215267-hq-m-686650_12029773-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_plogs/FlowSep/681701_11215267-hq-m-686650_12029773-hq.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                              <center>
+                                 <img alt="fname" height="125" src="demo_plogs/ground_truth/681701_11215267-hq-m-686650_12029773-hq.png" width="250"/>
+                              </center>
+                           </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/mix/681701_11215267-hq-m-686650_12029773-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/AudioSep/681701_11215267-hq-m-686650_12029773-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/FlowSep/681701_11215267-hq-m-686650_12029773-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demos/ground_truth/681701_11215267-hq-m-686650_12029773-hq.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+
+
+                          </tbody>
+                        </table>
+                      </div>-->
+                    <!-- </div> 
+                  </div>
+                </div> -->
+                
+              </div>
+
+
+            <hr>
+
+              <center>
+              <h2>Acknowledgement</h2>
+              </center>
+              <p style="text-align: jus
+              tify; color:black;font-family: georgian;">
+                <font> 
+                  This research was partly supported by a research scholarship from the China Scholarship Council (CSC), 
+                  funded by British Broadcasting Corporation Research and Development (BBC R&D), 
+                  Engineering and Physical Sciences Research Council~(EPSRC) Grant EP/T019751/1 'AI for Sound', 
+                  and a PhD scholarship from the Centre for Vision, Speech and Signal Processing(CVSSP), University of Surrey. 
+                  For the purpose of open access, the authors have applied a Creative Commons Attribution(CC BY) license to any Author Accepted Manuscript version arising.
+              </font></p>
+              <br></br>
+              <hr>
+
+              <p style="text-align: justify; color:black;font-family: georgian;">
+                <font> 
+              Page updated on 10 Sep 2024
+            </font></p>
+              <br></br>
+          </section>
+        </article>
+      </main>
+
+    </div>
+
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-139981676-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
