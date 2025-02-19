@@ -182,14 +182,17 @@
               <th style="border: None;">
                 <h2 id="graph">
                   <center>
-                  <h1>FlowSep</h1>
+                  <h1>Model Architecture</h1>
                 </center>
               </h2>
               <p style="text-align: justify; color:black;font-family: georgian;">
                 <font> 
                   <!-- <strong> -->
-                    FlowSep is an RFM-based generative model for text-based audio source separation. FlowSep comprises four main components: a T5 encoder for text embedding, a rectified flow matching
-                    (RFM) generator for creating audio features within the latent space, a VAE decoder for reconstructing the mel-spectrogram, and a GAN vocoder to produce the final waveform.
+                    Architecture of the proposed model AudioTurbo. AudioTurbo consists of
+                    four key components: 1) a text encoder for generating text embeddings; 
+                    2) a LDM based on rectified diffusion for predicting audio latent representations; 
+                    3) a VAE decoder that reconstructs the mel-spectrograms; 
+                    and 4) a vocoder for generating audio samples.
                 <!-- </strong> -->
                 </font>
               </p>
@@ -199,7 +202,7 @@
                   
                   <p style="text-align: justify;">
                     <center>
-                    <font color="061E61"><b>Figure 1:</b> Framework of FlowSep.
+                    <font color="061E61"><b>Figure 1:</b> Framework of AudioTurbo.
                     </center>
                   </p>
                 </figcaption>
