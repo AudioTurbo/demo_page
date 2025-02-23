@@ -229,7 +229,7 @@
               <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
                 <thead>
                   <tr>
-                    <th scope="col" width="160px">
+                    <th scope="col" width="250px">
                       <center>
                       <font color="061E61">Text Query</font>
                     </center>
@@ -276,12 +276,22 @@
                       </td>
                       <td>
                          <center>
-                            <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-16.png" width="250"/>
+                            <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000003.png" width="250"/>
                          </center>
                       </td>
                       <td>
                          <center>
-                            <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-16.png" width="250"/>
+                            <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/Tango/1_00000003.png" width="250"/>
                          </center>
                       </td>
                    </tr>
@@ -322,42 +332,64 @@
                     <tr>
                       <td style="text-align: center; vertical-align: middle;">
                         <center>
-                          "someone is beating the drum continuously"
+                          "A man is speaking followed by a child speaking and then laughter"
                         </center>
                       </td>
                       <td>
                          <center>
-                            <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-68.png" width="250"/>
+                            <img alt="fname" height="125" src="demo_pics/GT/0_00000100.png" width="250"/>
                          </center>
                       </td>
                       <td>
                          <center>
-                            <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-68.png" width="250"/>
+                            <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000100.png" width="250"/>
                          </center>
                       </td>
                       <td>
                          <center>
-                            <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-68.png" width="250"/>
+                            <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/Tango/1_00000100.png" width="250"/>
                          </center>
                       </td>
                    </tr>
                     <td></td>
                       <td><center><audio controls="controls">
                         <source
-                          src="demos/ground_truth/test-real-case-68.wav"
+                          src="demo_wavs/GT/0_00000100.wav"
                           autoplay />Your browser does not support the audio element.
                       </audio>
                     </center>
                     </td>
                       <td><center><audio controls="controls">
                         <source
-                          src="demos/AudioSep/test-real-case-68.wav"
+                          src="demo_wavs/AudioTurbo/4_00000100.wav"
                           autoplay />Your browser does not support the audio element.
                       </audio>
                     </center></td>
                       <td><center><audio controls="controls">
                         <source
-                          src="demos/FlowSep/test-real-case-68.wav"
+                          src="demo_wavs/LAFMA/3_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/Audioldm2/2_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/Tango/1_00000100.wav"
                           autoplay />Your browser does not support the audio element.
                       </audio>
                     </center></td>
@@ -374,30 +406,40 @@
                       </button>
                     </h5>
                   </div>
-                  <!-- more examples for dacse2024-real -->
+                  <!-- more examples for audioturbo vs baseline models on audiocaps -->
                   <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                       <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
                         <thead>
                           <tr>
-                            <th scope="col" width="160px">
+                            <th scope="col" width="250px">
                               <center>
                               <font color="061E61">Text Query</font>
                             </center>
                             </th>
                             <th scope="col" width="250px">
                               <center>
-                              <font color="061E61">Mixture</font>
+                              <font color="061E61">Ground Truth</font>
                             </center>
                             </th>
                             <th scope="col" width="250px">
                               <center>
-                              <font color="061E61">AudioSep</font>
+                              <font color="061E61">AudioTurbo</font>
                             </center>
                             </th>
                             <th scope="col" width="250px">
                               <center>
-                              <font color="061E61">FlowSep</font>
+                              <font color="061E61">LAFMA</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">AudioLMD2</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">Tango</font>
                             </center>
                             </th>
                           </tr>
@@ -407,7 +449,7 @@
                             <tr>
                               <td style="text-align: center; vertical-align: middle;">
                                 <center>
-                                  "the woman is speaking in a distance"
+                                  "Two men speaking followed by plastic clacking then a power tool drilling"
                                 </center>
                               </td>
                               <td>
@@ -451,7 +493,7 @@
                             <tr>
                               <td style="text-align: center; vertical-align: middle;">
                                 <center>
-                                  "the woman is talking with others"
+                                  "Brief speech followed by whistling a tune"
                                 </center>
                               </td>
                               <td>
@@ -495,7 +537,7 @@
                             <tr>
                               <td style="text-align: center; vertical-align: middle;">
                                 <center>
-                                  "a bunch of people are cheering in unison"
+                                  "A musical horn"
                                 </center>
                               </td>
                               <td>
@@ -536,226 +578,6 @@
                               </audio>
                             </center></td>
                           </tr>
-                          <tr>
-                            <tr>
-                              <td style="text-align: center; vertical-align: middle;">
-                                <center>
-                                  "the water is flowing and gurgling in the stream"
-                                </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-51.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-51.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-51.png" width="250"/>
-                                 </center>
-                              </td>
-                           </tr>
-                            <td></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/ground_truth/test-real-case-51.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center>
-                            </td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/AudioSep/test-real-case-51.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/FlowSep/test-real-case-51.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                          </tr>
-                          <tr>
-                            <tr>
-                              <td style="text-align: center; vertical-align: middle;">
-                                <center>
-                                  "a female is speaking and the cutlery is clanging"
-                                </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-75.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-75.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-75.png" width="250"/>
-                                 </center>
-                              </td>
-                           </tr>
-                            <td></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/ground_truth/test-real-case-75.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center>
-                            </td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/AudioSep/test-real-case-75.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/FlowSep/test-real-case-75.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                          </tr>
-                          <tr>
-                            <tr>
-                              <td style="text-align: center; vertical-align: middle;">
-                                <center>
-                                  "a cat is meowing amidst the faint sound of bird calls"
-                                </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-6.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-6.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-6.png" width="250"/>
-                                 </center>
-                              </td>
-                           </tr>
-                            <td></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/ground_truth/test-real-case-6.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center>
-                            </td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/AudioSep/test-real-case-6.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/FlowSep/test-real-case-6.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                          </tr>
-                          <tr>
-                            <tr>
-                              <td style="text-align: center; vertical-align: middle;">
-                                <center>
-                                  "in the forest, the birds are chirping incessantly"
-                                </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-10.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-10.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-10.png" width="250"/>
-                                 </center>
-                              </td>
-                           </tr>
-                            <td></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/ground_truth/test-real-case-10.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center>
-                            </td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/AudioSep/test-real-case-10.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/FlowSep/test-real-case-10.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                          </tr>
-                          <tr>
-                            <tr>
-                              <td style="text-align: center; vertical-align: middle;">
-                                <center>
-                                  "a car is passing by a noisy road"
-                                </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/ground_truth/test-real-case-11.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/AudioSep/test-real-case-11.png" width="250"/>
-                                 </center>
-                              </td>
-                              <td>
-                                 <center>
-                                    <img alt="fname" height="125" src="demo_plogs/FlowSep/test-real-case-11.png" width="250"/>
-                                 </center>
-                              </td>
-                           </tr>
-                            <td></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/ground_truth/test-real-case-11.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center>
-                            </td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/AudioSep/test-real-case-11.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                              <td><center><audio controls="controls">
-                                <source
-                                  src="demos/FlowSep/test-real-case-11.wav"
-                                  autoplay />Your browser does not support the audio element.
-                              </audio>
-                            </center></td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -768,7 +590,7 @@
 
               <br></br>
               <h2 id="section_2">
-                <h3 style="color: black;">Demos on AudioCaps</h3>
+                <h3 style="color: black;">5 Step Generated Results on AudioCaps</h3>
               </h2>
               <!-- <p>
                 <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
