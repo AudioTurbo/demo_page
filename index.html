@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.66.0" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+  <!-- 引入jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- 引入Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+  <style>
+    body {
+      font-size: 20px; /* 设置默认字体大小 */
+
+    }
+    h1{ font-size:30px; 
+      color:black"
+
+    }
+    thead{
+      border-top: 1px solid #ccc; 
+    }
+    .table td{
+      border: none
+    }
+    .no-border {
+    border: none;
+  }
+
+  th{
+    font-weight: lighter;
+  }
+
+    .table-container {
+      overflow-x: auto;
+      /* width:120%; */
+      width: 100%;
+      /* margin: 20px; */
+    }
+
+    .table-container2 {
+    table-layout: fixed;
+    word-break: break-word;
+    width: 90%; /* 适当调整宽度 */
+    margin: 0 auto; /* 居中对齐 */
+    }
+
+    .divider {
+    border-top: 2px solid #ccc; /* 灰色边框 */
+    margin: 20px 0; /* 适当调整上下边距 */
+  }
+
+    .audio-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none
+    }
+
+    td{
+      text-align: justify; 
+      color:black;
+      font-family: georgian;
+    }
+
+    font{ text-align: justify; 
+      color:black;
+      font-family: georgian;
+
+    }
+
+      video {
+      width: 640px; /* 设置视频宽度 */
+      height: 360px; /* 设置视频高度 */
+    }
+    @media(min-width:1200px){
+      .table-container {
+      overflow-x: auto;
+      width:100%;
+      margin: 0 auto;
+
+    }
+    }
+    @media (max-width: 600px) {
+      /* 在手机屏幕上应用以下样式 */
+      body {
+        font-size: 14px; /* 缩小字体大小 */
+      }
+      h1 {
+        font-size: 22px; /* 缩小标题字体大小 */
+      }
+      h2 {
+        font-size: 18px; /* 缩小标题字体大小 */
+      }
+      nav ul li {
+        display: block; /* 列表项显示为块级元素，方便手机点击 */
+      }
+      .video-container {
+        padding-bottom: 75%; /* 4:3宽高比，调整此值适配其他比例的视频 */
+      }
+      video {
+      width: 400px; /* 设置视频宽度 */
+      /* height: 360px; 设置视频高度 */
+      }
+    }
+  </style>
+  <title > AudioTurbo: Fast Text-to-Audio Generation with Rectified Diffusion </title>
+</head>
+
+<body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
+  <!-- <font size="5"> -->
+
+    <div class="container">
+
+      <header role="banner">
+
+      </header>
+      <main role="main">
+        <article itemscope itemtype="https://schema.org/BlogPosting">
+          <br></br>
+          <h1 itemprop="headline" align="center">
+            <font style="font-size:40px; color:black;">AudioTurbo: Fast Text-to-Audio Generation with Rectified Diffusion
+            </font>
+          </h1>
+          <br></br>
+          <p style="line-height:1" align="center"><b>
+              <font style="font-size:25px; color:black;">Anonymous author</font>
+            </b></p>
+          <br>
+          <br>
+
+          <section itemprop="entry-text">
+            <!-- <br>
+            <div class="container">
+              <center>
+                <p><a href="https://arxiv.org/abs/2301.12503">[Paper on ArXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/haoheliu/audioldm2">[Code on GitHub]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/haoheliu/audioldm2">[HuggingFace Demo]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://discord.gg/b64SEmdf">[Discord Community]</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                
+              </center>
+            </div> -->
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+  
+                  <th>
+                    <h2 id="abstract">
+                      <center>
+                        <h1>Abstract</h1>
+                      </center>
+                    </h2>
+                    <p style="text-align: justify; color:black;font-family: georgian;">
+                      <font> 
+                        Diffusion models have significantly improved the quality and diversity of audio generation but are hindered by slow inference speed. 
+                        Rectified flow enhances inference speed by learning straight-line ordinary differential equation (ODE) paths. 
+                        However, this approach requires training a flow-matching model from scratch and tends to perform suboptimally, or even poorly, at low step counts. 
+                        To address the limitations of rectified flow while leveraging the advantages of advanced pre-trained diffusion models, this study integrates pre-trained models with the rectified diffusion method to improve the efficiency of text-to-audio (TTA) generation. 
+                        Specifically, we propose AudioTurbo, which learns first-order ODE paths from deterministic noise-sample pairs generated by a pre-trained TTA model. 
+                        Experiments on the AudioCaps dataset demonstrate that our model, with only 10 sampling steps, outperforms prior models and reduces inference to 3 steps compared to a flow-matching-based acceleration model.
+                      </font>
+                    </p>
+                    </th>
+
+            </table>
+            <!-- <hr class="divider"> -->
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <th style="border: None;">
+                <h2 id="graph">
+                  <center>
+                  <h1>Model Architecture</h1>
+                </center>
+              </h2>
+              <p style="text-align: justify; color:black;font-family: georgian;">
+                <font> 
+                  <!-- <strong> -->
+                    Architecture of the proposed model AudioTurbo. AudioTurbo consists of
+                    four key components: 1) a text encoder for generating text embeddings; 
+                    2) a LDM based on rectified diffusion for predicting audio latent representations; 
+                    3) a VAE decoder that reconstructs the mel-spectrograms; 
+                    and 4) a vocoder for generating audio samples.
+                <!-- </strong> -->
+                </font>
+              </p>
+              <figure>
+                <p align="center"><img src="AudioTurbo.png" width="60%" class="center" /></p>
+                <figcaption>
+                  
+                  <p style="text-align: justify;">
+                    <center>
+                    <font color="061E61"><b>Figure 1:</b> Framework of AudioTurbo.
+                    </center>
+                  </p>
+                </figcaption>
+              </figure>
+            </th>
+          </table>
+            
+            
+  
+            
+
+            <br></br>
+            <h2 id="section_1">
+              <!-- <h3 style="color: black;">AudioTurbo (10 steps) VS baseline models (200 steps) on AudioCaps</h3> -->
+              <h3 style="color: black;">     AudioTurbo (10 steps)      <span style="color: red; font-weight: bold;">VS</span>      baseline models (200 steps) on AudioCaps </h3>
+            </h2>
+            <!-- <p>
+              <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
+            </p> -->
+            <!-- demos for audiocaps -->
+            <div class = "table-container">
+              <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                <thead>
+                  <tr>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">Text Query</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">Ground Truth</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">AudioTurbo</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">LAFMA</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">AudioLDM2</font>
+                    </center>
+                    </th>
+                    <th scope="col" width="250px">
+                      <center>
+                      <font color="061E61">Tango</font>
+                    </center>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        <center>
+                          "A train running on a railroad track followed by a vehicle door closing and a man talking in the distance while a train horn honks and railroad crossing warning signals ring"
+                        </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/GT/0_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/Tango/1_00000003.png" width="250"/>
+                         </center>
+                      </td>
+                   </tr>
+                    <td></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/GT/0_00000003.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center>
+                    </td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/AudioTurbo/4_00000003.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/LAFMA/3_00000003.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                       <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/AudioLDM2/2_00000003.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                       <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/Tango/1_00000003.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        <center>
+                          "A man is speaking followed by a child speaking and then laughter"
+                        </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/GT/0_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                      <td>
+                         <center>
+                            <img alt="fname" height="125" src="demo_pics/Tango/1_00000100.png" width="250"/>
+                         </center>
+                      </td>
+                   </tr>
+                    <td></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/GT/0_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center>
+                    </td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/AudioTurbo/4_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/LAFMA/3_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/AudioLDM2/2_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                      <td><center><audio controls="controls">
+                        <source
+                          src="demo_wavs/Tango/1_00000100.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio>
+                    </center></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        &#x1F449; Click for more examples.
+                      </button>
+                    </h5>
+                  </div>
+                  <!-- more examples for audioturbo vs baseline models on audiocaps -->
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                        <thead>
+                          <tr>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">Text Query</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">Ground Truth</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">AudioTurbo</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">LAFMA</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">AudioLDM2</font>
+                            </center>
+                            </th>
+                            <th scope="col" width="250px">
+                              <center>
+                              <font color="061E61">Tango</font>
+                            </center>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "Two men speaking followed by plastic clacking then a power tool drilling"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/GT/0_00000211.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000211.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000211.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000211.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/Tango/1_00000211.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/GT/0_00000211.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioTurbo/4_00000211.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/LAFMA/3_00000211.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioLDM2/2_00000211.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/Tango/1_00000211.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "Brief speech followed by whistling a tune"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/GT/0_00000357.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000357.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000357.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000357.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/Tango/1_00000357.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/GT/0_00000357.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioTurbo/4_00000357.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/LAFMA/3_00000357.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioLDM2/2_00000357.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/Tango/1_00000357.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                          <tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <center>
+                                  "A musical horn"
+                                </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/GT/0_00000431.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioTurbo/4_00000431.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/LAFMA/3_00000431.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/AudioLDM2/2_00000431.png" width="250"/>
+                                 </center>
+                              </td>
+                              <td>
+                                 <center>
+                                    <img alt="fname" height="125" src="demo_pics/Tango/1_00000431.png" width="250"/>
+                                 </center>
+                              </td>
+                           </tr>
+                            <td></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/GT/0_00000431.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center>
+                            </td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioTurbo/4_00000431.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/LAFMA/3_00000431.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/AudioLDM2/2_00000431.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                              <td><center><audio controls="controls">
+                                <source
+                                  src="demo_wavs/Tango/1_00000431.wav"
+                                  autoplay />Your browser does not support the audio element.
+                              </audio>
+                            </center></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+
+              <br></br>
+              <h2 id="section_2">
+                <h3 style="color: black;">5-Step Generated Results on AudioCaps</h3>
+              </h2>
+              <!-- <p>
+                <i>Text prompts are generated by the ChatGPT. Audio files are generated by AudioLDM 2-Full.</i>
+              </p> -->
+              <!-- demos for 5-Step Generated Results on AudioCaps -->
+              <div class = "table-container">
+                <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Text Query</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">AudioTurbo</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">LAFMA</font>
+                      </center>
+                      </th>
+                      <th scope="col" width="250px">
+                        <center>
+                        <font color="061E61">Auffusion</font>
+                      </center>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "Birds are squawking, and ducks are quacking"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/AudioTurbo/4_00000025.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/LAFMA/3_00000025.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/Auffusion/5_00000025.png" width="250"/>
+                       </center>
+                    </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/AudioTurbo/4_00000025.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/LAFMA/3_00000025.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/Auffusion/5_00000025.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                        "Water running with a main is speaking"
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/AudioTurbo/4_00000028.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/LAFMA/3_00000028.png" width="250"/>
+                       </center>
+                    </td>
+                    <td>
+                       <center>
+                          <img alt="fname" height="125" src="demo_pics/5-step/Auffusion/5_00000028.png" width="250"/>
+                       </center>
+                    </td>
+                 </tr>
+                  <td></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/AudioTurbo/4_00000028.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/LAFMA/3_00000028.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                        <td><center><audio controls="controls">
+                          <source
+                            src="demo_wavs/5-step/Auffusion/5_00000028.wav"
+                            autoplay />Your browser does not support the audio element.
+                        </audio><center></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          &#x1F449; Click for more examples.
+                        </button>
+                      </h5>
+                    </div>
+                    <!-- more examples for 5-Step Generated Results on audiocaps -->
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                          <thead>
+                            <tr>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Text Query</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">AudioTurbo</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">LAFMA</font>
+                              </center>
+                              </th>
+                              <th scope="col" width="250px">
+                                <center>
+                                <font color="061E61">Auffusion</font>
+                              </center>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "A woman speaking followed by a porcelain plate clanking as food and oil sizzles"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/AudioTurbo/4_00000032.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/LAFMA/3_00000032.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/Auffusion/5_00000032.png" width="250"/>
+                               </center>
+                            </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/AudioTurbo/4_00000032.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/LAFMA/3_00000032.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/Auffusion/5_00000032.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "Blowing of a horn as a train passes"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/AudioTurbo/4_00000034.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/LAFMA/3_00000034.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/Auffusion/5_00000034.png" width="250"/>
+                               </center>
+                            </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/AudioTurbo/4_00000034.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/LAFMA/3_00000034.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/Auffusion/5_00000034.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center; vertical-align: middle;">
+                                "A crowd is clapping at an animal of some kind"
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/AudioTurbo/4_00000294.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/LAFMA/3_00000294.png" width="250"/>
+                               </center>
+                            </td>
+                            <td>
+                               <center>
+                                  <img alt="fname" height="125" src="demo_pics/5-step/Auffusion/5_00000294.png" width="250"/>
+                               </center>
+                            </td>
+                         </tr>
+                          <td></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/AudioTurbo/4_00000294.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/LAFMA/3_00000294.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                                <td><center><audio controls="controls">
+                                  <source
+                                    src="demo_wavs/5-step/Auffusion/5_00000294.wav"
+                                    autoplay />Your browser does not support the audio element.
+                                </audio><center></td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+       
+
+
+            <hr>
+
+              <center>
+              <h2>Acknowledgement</h2>
+              </center>
+              <p style="text-align: jus
+              tify; color:black;font-family: georgian;">
+                <font>  
+                  TODO.
+              </font></p>
+              <br></br>
+              <hr>
+
+              <p style="text-align: justify; color:black;font-family: georgian;">
+                <font> 
+              Page updated on 19 Feb 2025
+            </font></p>
+              <br></br>
+          </section>
+        </article>
+      </main>
+
+    </div>
+
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-139981676-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
